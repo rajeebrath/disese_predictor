@@ -510,10 +510,61 @@ textarea:not([disabled]):focus {
       border: 1px solid #0c5f96;
       color: #0c5f96;
     }
+
+    /*css for loading*/
+    .loading-container {
+      font-family: "Lucida Console", "Courier New";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 5px solid #ccc;
+      border-top-color: #333;
+      animation: spin 1s infinite linear;
+    }
+
+    .intro-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
+
 </head>
 
 <body>
+
+
+
+  <!-- Rest of your HTML code goes here -->
+
+
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <div class="intro-text">👨‍💻rajeeb_rath</div>
+  </div>
+  <!-- Rest of your HTML code goes here -->
+
+
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">
     <div>
@@ -554,7 +605,8 @@ textarea:not([disabled]):focus {
             <div class="desktop:grid-col-12">
               <div id="buttonsSection" class="grid-row display-flex padding-left-2 padding-right-2 padding-top-2">
                 <button disabled="" class="usa-button usa-button--outline back">Back</button><button class="usa-button "
-                  disabled="" type="submit">Next</button></div>
+                  disabled="" type="submit">Next</button>
+              </div>
             </div>
           </div>
         </div>
@@ -575,7 +627,27 @@ textarea:not([disabled]):focus {
   <script src="bundle.js.download"></script>
   <script src="1.chunk.js.download"></script>
   <script src="main.chunk.js.download"></script>
+  <script>setTimeout(function () {
+      document.querySelector('.loading-container').remove();
+    }, 2000);
+    var spinner = document.querySelector('.spinner');
+    var colors = ['#FF9800', '#2196F3', '#FFEB3B', '#4CAF50'];
+    var colorIndex = 0;
+
+    function changeColor() {
+      colorIndex++;
+      if (colorIndex >= colors.length) {
+        colorIndex = 0;
+      }
+      spinner.style.borderTopColor = colors[colorIndex];
+      introText.style.color = colors[colorIndex];
+    }
+
+    setInterval(changeColor, 500);
+  </script>
+
 
 </body>
+
 
 </html>
