@@ -1574,7 +1574,7 @@ const Navbar = () => {
       lineNumber: 15,
       columnNumber: 19
     }
-  }, "DISEASE PREDICTION USING MACHINE LEARNING");
+  }, " ");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbar);
